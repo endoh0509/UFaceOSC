@@ -23,7 +23,8 @@ using uOSC;
 using UFaceOSC;
 
 public class main : MonoBehaviour {
-	private FaceOSC.Parser faceOscParser;
+  private FaceOSC.Parser faceOscParser;
+  
   void Start()
   {
     faceOscParser = new UFaceOSC.Parser();
