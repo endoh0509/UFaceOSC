@@ -1,6 +1,6 @@
 # UFaceOSC
 
-OSC message parser for FaceOSC
+UFaceOSC is a Unity package for parsing OSC messages received from FaceOSC.
 
 ## Platforms
 
