@@ -23,7 +23,7 @@ using uOSC;
 using UFaceOSC;
 
 public class main : MonoBehaviour {
-  private FaceOSC.Parser faceOscParser;
+  private UFaceOSC.Parser faceOscParser;
   
   void Start()
   {
@@ -37,7 +37,7 @@ public class main : MonoBehaviour {
     faceOscParser.SetData(message.address, message.values);
     Vector2[] rawPoints = faceOscParser.GetRaw().GetPoints();
     UFaceOSC.Face face = faceOscParser.GetFace();
-    Debug.Log(Face.found);
+    Debug.Log(face.found);
   }
 }
 ```
