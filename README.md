@@ -26,15 +26,15 @@ public class main : MonoBehaviour {
 	private FaceOSC.Parser faceOscParser;
   void Start()
   {
-		faceOscParser = new UFaceOSC.Parser();
+    faceOscParser = new UFaceOSC.Parser();
     var server = GetComponent <uOscServer>();
     server.onDataReceived.AddListener(OnDataReceived);
   }
 
   void OnDataReceived(Message message)
   {
-		faceOscParser.SetData(message.address, message.values);
-		Vector2[] rawPoints = faceOscParser.GetRaw().GetPoints();
+    faceOscParser.SetData(message.address, message.values);
+    Vector2[] rawPoints = faceOscParser.GetRaw().GetPoints();
     UFaceOSC.Face face = faceOscParser.GetFace();
     Debug.Log(Face.found);
   }
