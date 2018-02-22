@@ -7,6 +7,11 @@ namespace UFaceOSC {
     public float left;
     public float right;
 
+    public Eyebrow() {
+      this.left = 0;
+      this.right = 0;
+    }
+
     public void SetValues(Queue<string> queue, object[] values) {
       string first = queue.Dequeue();
       if (first == "left") {

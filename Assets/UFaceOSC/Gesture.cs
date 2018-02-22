@@ -10,6 +10,14 @@ namespace UFaceOSC {
     public float jaw;
     public float nostrils;
 
+    public Gesture() {
+      this.mouth = new Mouth();
+      this.eyebrow = new Eyebrow();
+      this.eye = new Eye();
+      this.jaw = 0;
+      this.nostrils = 0;
+    }
+
     public void SetValues(Queue<string> queue, object[] values) {
       string first = queue.Dequeue();
       if (first == "mouth") {

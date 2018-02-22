@@ -7,11 +7,17 @@ namespace UFaceOSC {
     public float width;
     public float height;
 
+    public Mouth() {
+      this.width = 0;
+      this.height = 0;
+    }
+
     public void SetValues(Queue<string> queue, object[] values) {
       string first = queue.Dequeue();
       if (first == "width") {
         this.width = (float) values[0];
       } else if (first == "height") {
+        Debug.Log("height");
         this.height = (float) values[0];
       }
     }
