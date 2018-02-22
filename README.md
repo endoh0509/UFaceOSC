@@ -24,7 +24,7 @@ using UFaceOSC;
 
 public class main : MonoBehaviour {
   private UFaceOSC.Parser faceOscParser;
-  
+
   void Start()
   {
     faceOscParser = new UFaceOSC.Parser();
@@ -35,9 +35,12 @@ public class main : MonoBehaviour {
   void OnDataReceived(Message message)
   {
     faceOscParser.SetData(message.address, message.values);
-    Vector2[] rawPoints = faceOscParser.GetRaw().GetPoints();
-    UFaceOSC.Face face = faceOscParser.GetFace();
-    Debug.Log(face.found);
+    if (faceOscParser == 1) {
+      // raw points (66 xy-pairs): /raw
+      Vector2[] rawPoints = faceOscParser.raw;
+      // mouth height: /gesture/mouth/height
+      Debug.Log(faceOscParser.gesture.mouth.height);
+    }
   }
 }
 ```

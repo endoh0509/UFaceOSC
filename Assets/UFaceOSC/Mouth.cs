@@ -17,7 +17,6 @@ namespace UFaceOSC {
       if (first == "width") {
         this.width = (float) values[0];
       } else if (first == "height") {
-        Debug.Log("height");
         this.height = (float) values[0];
       }
     }

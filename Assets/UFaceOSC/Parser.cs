@@ -4,15 +4,16 @@ using System.Collections.Generic;
 
 namespace UFaceOSC {
   public class Parser {
+    public static int POINTS_LENGTH = 66;
     public int found;
-    private Raw raw;
     public Pose pose;
     public Gesture gesture;
+    public float[] raw;
 
     public Parser()
     {
       this.found = 0;
-      this.raw  = new Raw();
+      this.raw  = new float[POINTS_LENGTH * 2];
       this.pose = new Pose();
       this.gesture = new Gesture();
     }
@@ -52,16 +53,19 @@ namespace UFaceOSC {
 
     private void SetRaw(object[] values)
     {
-      raw.Clear();
-      for (int i = 0; i < values.Length / 2; i++)
+      for (int i = 0; i < POINTS_LENGTH * 2; i++)
       {
-        this.raw.AddPoint(new Vector2((float) values[i], (float) values[i + 1]));
+        this.raw[i] = (float)values[i];
       }
     }
-    
-    public Raw GetRaw()
-    {
-      return this.raw;
+
+    public Vector2[] GetRawPoints() {
+      Vector2[] rawPoints = new Vector2[POINTS_LENGTH];
+      for (int i = 0; i < POINTS_LENGTH; i += 2)
+      {
+        rawPoints[i] = new Vector2(raw[i], raw[i + 1]);
+      }
+      return rawPoints;
     }
   }
 }
